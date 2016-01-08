@@ -1,0 +1,55 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="C:\ENBOT\"
+ProjectType=Executable
+CPUFamily=TMS320C28XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="DSP2833x_ADC_cal.asm"
+Source="DSP2833x_CodeStartBranch.asm"
+Source="DSP2833x_CpuTimers.c"
+Source="DSP2833x_DefaultIsr.c"
+Source="DSP2833x_GlobalVariableDefs.c"
+Source="DSP2833x_MemCopy.c"
+Source="DSP2833x_PieCtrl.c"
+Source="DSP2833x_PieVect.c"
+Source="DSP2833x_Sci.c"
+Source="DSP2833x_SysCtrl.c"
+Source="DSP2833x_usDelay.asm"
+Source="Inicializacion.c"
+Source="IQmath.lib"
+Source="Principal.c"
+Source="DSP2833x_Headers_nonBIOS.cmd"
+Source="F28335.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -pdsw225 -fr"$(Proj_dir)\Debug" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28
+
+["Compiler" Settings: "Release"]
+Options=-pdsw225 -o3 -fr"$(Proj_dir)\Release" -d"LARGE_MODEL" -ml -v28
+
+["Linker" Settings: "Debug"]
+Options=-c -m".\Debug\Proyecto1.map" -o".\Debug\Proyecto1.out" -w -x
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\Proyecto1.map" -o".\Release\Proyecto1.out" -w -x
+
+["DSP2833x_Headers_nonBIOS.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["DSP2833x_Headers_nonBIOS.cmd" Settings: "Release"]
+LinkOrder=1
+
+["F28335.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["F28335.cmd" Settings: "Release"]
+LinkOrder=1
+
